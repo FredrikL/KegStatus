@@ -2,7 +2,8 @@
 
 const clui = require('clui'),
 	clear = require("cli-clear"),
-	pad = require('pad');
+	pad = require('pad'),
+	colors = require('colors');;
 
 var Gauge = clui.Gauge;
 
@@ -26,7 +27,7 @@ const kegs = [
 
 const printKeg = (keg) => {
 	console.log(`Tap ${keg.tap}`);
-	console.log(`${pad(keg.name, 30)} ${pad(4,keg.percent)}%`)
+	console.log(`${pad(keg.name, 30).rainbow} ${pad(4,keg.percent)}%`)
 	let str = `${Gauge(keg.current, keg.max, 35)}`;
 	console.log(str);
 	console.log("");
@@ -35,7 +36,7 @@ const printKeg = (keg) => {
 const print = () => {
 	clear();
 
-	console.log("BeerMeTo");
+	console.log("BeerMeTo".blue);
 	console.log("");	
 
 	kegs.forEach(printKeg);
