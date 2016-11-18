@@ -8,27 +8,36 @@ var Gauge = clui.Gauge;
 
 const kegs = [
 	{
-		name: "Ipa",
+		tap: 1,
+		name: "Inte så besk Ipa",
+		percent: 5.5,
 		current: 5,
 		max: 9
 	},
 	{
+		tap: 2,
 		name: "FolkIpa",
-		current: 17,
+		percent: 3,
+		current: 1,
 		max: 19
 	}
 ]
 
 
 const printKeg = (keg) => {
-	let str = `${pad(keg.name, 10)} ${Gauge(keg.current, keg.max, 20)}`;
+	console.log(`Tap ${keg.tap}`);
+	console.log(`${pad(keg.name, 30)} ${pad(4,keg.percent)}%`)
+	let str = `${Gauge(keg.current, keg.max, 35)}`;
 	console.log(str);
+	console.log("");
 };
 
 const print = () => {
 	clear();
-	
-	//console.log(Gauge(4, 20, 20, 19 , 4));
+
+	console.log("BeerMeTo");
+	console.log("");	
+
 	kegs.forEach(printKeg);
 	setTimeout(print, 1000);
 }
